@@ -1,0 +1,60 @@
+# Step 1: Root type and root field
+type Query {
+  demo: String!
+}
+
+# Step 2: Object types
+# type Query {
+#   movies: [Movie!]
+# }
+
+# type Movie {
+#   id: ID!
+#   title: String!
+# }
+
+# Step 3: Arguments
+# type Query {
+#   movies: [Movie!]
+#   movie(id: ID!): Movie
+# } 
+
+# type Movie {
+#   id: ID!
+#   title: String!
+# }
+
+# Step 4: Interfaces
+# input MovieInput {
+#   title: String!
+#   director: String!
+# }
+
+# interface Media {
+#   id: ID!
+#   title: String!
+# }
+
+# """Custom Type **description**"""
+# type Movie implements Media {
+#   id: ID!
+#   title: String!
+#   director: String!
+# }
+
+# type Song implements Media {
+#   id: ID!
+#   title: String!
+#   artist: String!
+# }
+
+# Step 6 Mutation
+# type Mutation {
+#   createMovie(title: String!): Movie!
+# }
+
+# Step 7 Input type
+# input MovieInput {
+#   title: String!
+#   director: String!
+# }
