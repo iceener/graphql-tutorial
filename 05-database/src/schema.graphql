@@ -1,0 +1,35 @@
+# Query
+type Query {
+  movies: [Movie!]
+  movie(id: ID!): Movie
+  directors: [Director!]
+  director(id: ID!): Director
+} 
+
+type Mutation {
+  createMovie(title: String! duration: Int! director: ID!): Movie!
+  deleteMovie(id: ID!): Movie!
+  createDirector(name: String!): Director!
+  deleteDirector(id: ID!): Director!
+}
+
+# Types
+type Movie {
+  id: ID!
+  title: String!
+  duration(unit: TimeUnit = SECONDS): Int!
+  director: Director!
+}
+
+type Director {
+  id: ID!
+  name: String!
+  movies: [Movie!]
+}
+
+# Scalars
+enum TimeUnit {
+  SECONDS
+  MINUTES
+  HOURS
+}

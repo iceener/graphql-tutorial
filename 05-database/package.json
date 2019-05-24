@@ -1,0 +1,11 @@
+{
+  "name": "overment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.5.0",
+    "graphql": "^14.3.1",
+    "prisma-client-lib": "^1.33.0"
+  }
+}
