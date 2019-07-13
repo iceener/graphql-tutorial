@@ -1,0 +1,18 @@
+type Movie {
+  id: ID! @id
+  title: String!
+  duration(unit: TimeUnit = SECONDS): Int!
+  director: Director! @relation(link: INLINE)
+}
+
+type Director {
+  id: ID! @id
+  name: String!
+  movies: [Movie!]
+}
+
+enum TimeUnit {
+  SECONDS
+  MINUTES
+  HOURS
+}
