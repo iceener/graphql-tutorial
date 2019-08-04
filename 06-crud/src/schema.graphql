@@ -9,7 +9,7 @@ type Query {
 type Mutation {
   createMovie(title: String! duration: Int! director: ID!): Movie!
   deleteMovie(id: ID!): Movie!
-  updateMovie(id: ID! title:String, duration:Int, director_id:String): Movie!
+  updateMovie(id: ID! title: String, duration: Int, director_id: String): Movie!
   createDirector(name: String!): Director!
   deleteDirector(id: ID!): Director!
 }
@@ -27,12 +27,6 @@ type Director {
   name: String!
   movies: [Movie!]
 }
-
-# input MovieUpdateInput {
-#   title: String
-#   duration: Int
-#   director: DirectorUpdateOneRequiredWithoutMoviesInput
-# }
 
 # Scalars
 enum TimeUnit {

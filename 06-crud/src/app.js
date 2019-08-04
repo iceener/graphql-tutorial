@@ -20,33 +20,36 @@ const resolvers = {
       } };
       return prisma.createMovie(movie);
     },
-    createDirector: async(parent, args) => {
-      const director = { name: args.name };
-      return prisma.createDirector(director);
-    },
     deleteMovie: async(parent, args) => {
-      return prisma.deleteMovie({ id: args.id })
+      return prisma.deleteMovie({ id: args.id });
     },
-    deleteDirector: async(parent, args) => {
-      return prisma.deleteDirector({ id: args.id })
-    },
-    updateMovie: async(parent, args) => {
-      const movie = await prisma.movie({ id: args.id });
-      const movieData = { 
-        title: args.title ? args.title : movie.title, 
-        duration: args.duration ? args.duration : movie.duration
+    updateMovie: async(parent, { id, title, duration, director_id }) => {
+      const movie = await prisma.movie({ id: id });
+      const movieData = {
+        title: title ? title : movie.title, 
+        duration: duration ? duration : movie.duration
       }
 
-      if (args.director_id) {
+      if (director_id) {
         movieData.director = {
           connect: {
-            id: args.director_id
+            id: director_id
           }
         }
       }
 
-      return prisma.updateMovie({data: movieData, where: { id: args.id }} ) 
-    }
+      return prisma.updateMovie({
+        data: movieData,
+        where: { id: id }
+      });
+    },
+    createDirector: async(parent, args) => {
+      const director = { name: args.name };
+      return prisma.createDirector(director);
+    },
+    deleteDirector: async(parent, args) => {
+      return prisma.deleteDirector({ id: args.id });
+    },
   },
   Movie: {
     duration: ({ duration }, args) => {
