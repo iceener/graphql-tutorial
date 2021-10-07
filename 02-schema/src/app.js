@@ -27,7 +27,7 @@ const resolvers = {
   // Mutation: {
     // createMovie: (parent, args) => {
       // const id = moviesList.length + 1
-      // const movie = { id: id, title: args.movie.title, director: args.movie.director }
+      // const movie = { id: id, title: args.title, director: args.director }
       // moviesList.push(movie);
       // return movie;
     // }
